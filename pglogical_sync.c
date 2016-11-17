@@ -802,7 +802,9 @@ pglogical_sync_subscription(PGLogicalSubscription *sub)
 					CommitTransactionCommand();
 				}
 
+        elog(ERROR, "pausing for 10 seconds");
         sleep(10);
+        elog(ERROR, "resuming");
 
 				/* Restore post-data structure (indexes, constraints, etc). */
 				if (SyncKindStructure(sync->kind))
