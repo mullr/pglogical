@@ -803,7 +803,7 @@ pglogical_sync_subscription(PGLogicalSubscription *sub)
 				}
 
         elog(ERROR, "pausing for 10 seconds");
-        sleep(10);
+        pg_usleep(10 * USECS_PER_SEC);
         elog(ERROR, "resuming");
 
 				/* Restore post-data structure (indexes, constraints, etc). */
