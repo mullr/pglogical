@@ -802,6 +802,8 @@ pglogical_sync_subscription(PGLogicalSubscription *sub)
 					CommitTransactionCommand();
 				}
 
+        sleep(10);
+
 				/* Restore post-data structure (indexes, constraints, etc). */
 				if (SyncKindStructure(sync->kind))
 				{
